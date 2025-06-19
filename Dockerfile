@@ -27,6 +27,14 @@ RUN git clone https://github.com/lh3/miniprot.git && \
 	cd .. && \
 	rm -rf miniprot
 
+# Install Minimap2 (v2.30)
+RUN git clone https://github.com/lh3/minimap2.git -b v2.30 && \
+	cd minimap2 && \
+	make && \
+	cp minimap2 /usr/local/bin/ && \
+	cd .. && \
+	rm -rf minimap2
+
 # Set working directory
 WORKDIR /home
 
