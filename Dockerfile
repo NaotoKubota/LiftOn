@@ -1,6 +1,6 @@
 ###############################################################
 # Dockerfile to build container images for LiftOn
-# Based on python 3.9-bullseye
+# Based on python 3.11-bullseye
 ################################################################
 
 FROM python:3.11-bullseye
@@ -19,8 +19,8 @@ RUN pip install --upgrade pip
 # Install LiftOn
 RUN pip install --no-cache-dir lifton==1.0.5
 
-# Install Miniprot
-RUN git clone https://github.com/lh3/miniprot.git && \
+# Install Miniprot (v0.17)
+RUN git clone https://github.com/lh3/miniprot.git -b v0.17 && \
 	cd miniprot && \
 	make && \
 	cp miniprot /usr/local/bin/ && \
